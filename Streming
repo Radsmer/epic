@@ -1,0 +1,34 @@
+const Discord = require("discord.js");
+const client = new Discord.Client();
+client.on('ready', () => {
+    console.log(Logged in as ${client.user.tag}!);
+    console.log(in ${client.guilds.size} servers)
+    console.log([Users] ${client.users.size})
+});
+
+const devs = ['584958634543284224' , '' , '' , ''];
+const adminprefix = "R";
+client.on('message', message => {
+    var argresult = message.content.split(`).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'p')) {
+    client.user.setGame(argresult);
+      message.channel.sendMessage(:white_check_mark:   ${argresult})
+  } else 
+  if (message.content.startsWith(adminprefix + 'w')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.sendMessage(:white_check_mark:   ${argresult})
+  } else 
+  if (message.content.startsWith(adminprefix + 'l')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.sendMessage(:white_check_mark:   ${argresult})
+  } else 
+  if (message.content.startsWith(adminprefix + 's')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.sendMessage(:white_check_mark:   ${argresult}`)
+  }
+  });
+
+
+client.login("NTg0OTU4NjM0NTQzMjg0MjI0.XThS6w.LD55VqOeKg626hgmeLfB1H1KNgY");
